@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+
+	<!-- account chart  -->
+    <record id="l10n_acpec_temp_chart" model="account.chart.template">
+        <field name="property_account_receivable_id" ref="pcg_41000"/>
+        <field name="property_account_payable_id" ref="pcg_40000"/>
+        <field name="property_account_income_categ_id" ref="pcg_70000"/>
+        <field name="property_account_expense_categ_id" ref="pcg_60000"/>
+        <field name="income_currency_exchange_account_id" ref="pcg_77800"/>
+        <field name="expense_currency_exchange_account_id" ref="pcg_67800"/>
+        <!--
+        <field name="complete_tax_set" eval="False"/>
+      -->
+        <field name="use_anglo_saxon" eval="False"/>
+        <field name="property_stock_account_input_categ_id" ref="pcg_60300"/>
+        <field name="property_stock_account_output_categ_id" ref="pcg_60301"/>
+        <field name="property_stock_valuation_account_id" ref="pcg_30010"/>
+    </record>
+
+    <!-- Account Tags -->
+    <record id="tax_tag_01" model="account.account.tag">
+        <field name="name">TVA 16% ventes</field>
+        <field name="applicability">taxes</field>
+    </record>
+
+	<record id="tax_tag_02" model="account.account.tag">
+        <field name="name">TVA 16% achats</field>
+        <field name="applicability">taxes</field>
+    </record>
+
+	<record id="tax_tag_03" model="account.account.tag">
+        <field name="name">IMF 3%</field>
+        <field name="applicability">taxes</field>
+    </record>
+
+
+
+  <!-- Account Tax Template -->
+
+
+
+    <record model="account.tax.template" id="tva_ventes_16pc_2">
+        <field name="name">TVA 16% VENTES</field>
+        <field name="description">TVA-16%</field>
+        <field name="type_tax_use">sale</field>
+        <field name="refund_account_id" ref="pcg_43570"/>
+        <field name="account_id" ref="pcg_43570"/>
+        <field name="amount" eval='16.0'/>
+        <field name="amount_type">percent</field>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_01')])]"/>
+        <field name="tax_group_id" ref="tax_group_tva_16"/>
+    </record>
+
+
+    <record model="account.tax.template" id="tva_achats_16pc_2">
+        <field name="name">TVA 16% ACHATS</field>
+        <field name="description">TVA-16%</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="refund_account_id" ref="pcg_43570"/>
+        <field name="account_id" ref="pcg_43570"/>
+        <field name="amount" eval='16.0'/>
+        <field name="amount_type">percent</field>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_02')])]"/>
+        <field name="tax_group_id" ref="tax_group_tva_16"/>
+    </record>
+
+    <record model="account.tax.template" id="imf_3pc">
+        <field name="name">IMF 3%</field>
+        <field name="description">IMF 3%</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="refund_account_id" ref="pcg_43201"/>
+        <field name="account_id" ref="pcg_43201"/>
+        <field name="amount" eval='3.0'/>
+        <field name="amount_type">percent</field>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_03')])]"/>
+        <field name="tax_group_id" ref="tax_group_tva_3"/>
+    </record>
+
+    <record model="account.tax.template" id="tva_exo">
+        <field name="name">Exonere de TVA VENTES</field>
+        <field name="description">Exonere de TVA VENTES</field>
+        <field name="type_tax_use">sale</field>
+        <field name="refund_account_id"/>
+        <field name="account_id"/>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+        <field name="tax_group_id" ref="tax_group_tva_0"/>
+    </record>
+    <record model="account.tax.template" id="tva_exo1">
+        <field name="name">Exonere de TVA ACHATS</field>
+        <field name="description">Exonere de TVA ACHATS</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="refund_account_id"/>
+        <field name="account_id"/>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+        <field name="tax_group_id" ref="tax_group_tva_0"/>
+  </record>
+
+</odoo>

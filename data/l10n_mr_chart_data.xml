@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<odoo>
+        <!--     
+        Plan comptable général pour le Mauritanie.
+    Version du fichier : 15-03-2021
+    Mis en place par la société ACPEC - partenaire OpenERP en Mauritanie.
+    Vérifié et validé par 
+      --> 
+    <menuitem id="account_reports_ma_statements_menu" name="Mauritanie" parent="account.menu_finance_reports" sequence="0" groups="account.group_account_user"/>
+
+    <record id="l10n_acpec_temp_chart" model="account.chart.template">
+        <field name="name">Plan comptable mauritanien</field>
+        <field name="code_digits">5</field>
+        <field name="currency_id" ref="base.MRU"/>
+        <field name="bank_account_code_prefix">55000</field>
+        <field name="cash_account_code_prefix">56000</field>
+        <field name="transfer_account_code_prefix">58000</field>
+    </record>
+	
+    <record id="pcg_10030" model="account.account.template">
+        <field name="name">Capital souscrit-appelé, versé</field>
+        <field name="code">10030</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+
+    <record id="pcg_11000" model="account.account.template">
+        <field name="name">Réserves légales</field>
+        <field name="code">11000</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+
+    <record id="pcg_12000" model="account.account.template">
+        <field name="name">Report à nouveau (créditeur)</field>
+        <field name="code">12000</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+
+    <record id="pcg_12900" model="account.account.template">
+        <field name="name">Report à nouveau (débiteur)</field>
+        <field name="code">12900</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+
+    <record id="pcg_13000" model="account.account.template">
+        <field name="name">Résultat net (Bénéfice)</field>
+        <field name="code">13000</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+
+    <record id="pcg_13900" model="account.account.template">
+        <field name="name">Résultat net (Perte)</field>
+        <field name="code">13900</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_15000" model="account.account.template">
+        <field name="name">Plus value sur acquisition</field>
+        <field name="code">15000</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_16200" model="account.account.template">
+        <field name="name">Emprunts et dettes assimilées</field>
+        <field name="code">16200</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+ 
+	<record id="pcg_20000" model="account.account.template">
+        <field name="name">Frais d'établissement</field>
+        <field name="code">20000</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_20500" model="account.account.template">
+        <field name="name">Immobilisations incorporelles</field>
+        <field name="code">20500</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_21000" model="account.account.template">
+        <field name="name">Terrains</field>
+        <field name="code">21000</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_21200" model="account.account.template">
+        <field name="name">Bâtiments</field>
+        <field name="code">21200</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_21220" model="account.account.template">
+        <field name="name">Aménagements des constructions</field>
+        <field name="code">21220</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_21400" model="account.account.template">
+        <field name="name">Matériel d'exploitation</field>
+        <field name="code">21400</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_21500" model="account.account.template">
+        <field name="name">Matériel de transport</field>
+        <field name="code">21500</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_21600" model="account.account.template">
+        <field name="name">Matériel de bureau et informatique</field>
+        <field name="code">21600</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_21800" model="account.account.template">
+        <field name="name">Mobilier de bureau</field>
+        <field name="code">21800</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_27000" model="account.account.template">
+        <field name="name">Titres de participations</field>
+        <field name="code">27000</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_28000" model="account.account.template">
+        <field name="name">Amort. Frais d'établissement</field>
+        <field name="code">28000</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_28050" model="account.account.template">
+        <field name="name">Amort.Immos.incorporelles</field>
+        <field name="code">28050</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_28120" model="account.account.template">
+        <field name="name">Amort. Bâtiments</field>
+        <field name="code">28120</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+	
+    <record id="pcg_28140" model="account.account.template">
+        <field name="name">Amort. Matériel d'exploitation</field>
+        <field name="code">28140</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_28150" model="account.account.template">
+        <field name="name">Amort. Matériel de transport</field>
+        <field name="code">28150</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_28160" model="account.account.template">
+        <field name="name">Amort. Mat. Bureau et informatique</field>
+        <field name="code">28160</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_28180" model="account.account.template">
+        <field name="name">Amort. Mobilier de bureau</field>
+        <field name="code">28180</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_28182" model="account.account.template">
+        <field name="name">Amort.  Amén. des constructions</field>
+        <field name="code">28182</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_29106" model="account.account.template">
+        <field name="name">Prov. Dép. Terrains bâtis</field>
+        <field name="code">29106</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_29700" model="account.account.template">
+        <field name="name">Prov. Dép. Participations</field>
+        <field name="code">29700</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+	
+	<record id="pcg_30010" model="account.account.template">
+        <field name="name">Stocks de marchandises</field>
+        <field name="code">30010</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_39000" model="account.account.template">
+        <field name="name">Pro. Dép. Stock de marchandises</field>
+        <field name="code">39000</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+	
+	<record id="pcg_40000" model="account.account.template">
+        <field name="name">Fournisseurs et comptes rattachés</field>
+        <field name="code">40000</field>
+        <field name="user_type_id" ref="account.data_account_type_payable"/>
+		<field name="reconcile" eval='True'/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+ 
+    <record id="pcg_41900" model="account.account.template">
+        <field name="name">Avances et acomptes clients</field>
+        <field name="code">41900</field>
+        <field name="user_type_id" ref="account.data_account_type_payable"/>
+		<field name="reconcile" eval='True'/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+  
+    <record id="pcg_42000" model="account.account.template">
+        <field name="name">Rémunérations dues au personnel</field>
+        <field name="code">42000</field>
+        <field name="user_type_id" ref="account.data_account_type_payable"/>
+		<field name="reconcile" eval='True'/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+	
+	<record id="pcg_40900" model="account.account.template">
+        <field name="name">Avances et acomptes fournisseurs</field>
+        <field name="code">40900</field>
+        <field name="user_type_id" ref="account.data_account_type_receivable"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+	    <field name="reconcile" eval='True'/>
+    </record>
+
+    <record id="pcg_41000" model="account.account.template">
+        <field name="name">Clients et comptes rattachés</field>
+        <field name="code">41000</field>
+        <field name="user_type_id" ref="account.data_account_type_receivable"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+	    <field name="reconcile" eval='True'/>
+    </record>
+  
+    <record id="pcg_42500" model="account.account.template">
+        <field name="name">Avances et acomptes au personnel</field>
+        <field name="code">42500</field>
+        <field name="user_type_id" ref="account.data_account_type_receivable"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+	    <field name="reconcile" eval='True'/>
+    </record>
+	
+	<record id="pcg_43500" model="account.account.template">
+        <field name="name">Etat - TVA déductible</field>
+        <field name="code">43500</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record> 
+ 
+    <record id="pcg_43570" model="account.account.template">
+        <field name="name">Etat - TVA collectée</field>
+        <field name="code">43570</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record> 
+ 
+    <record id="pcg_43201" model="account.account.template">
+        <field name="name">Etat - IMF</field>
+        <field name="code">43201</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record> 
+
+    <record id="pcg_43202" model="account.account.template">
+        <field name="name">Etat - Impôts sur le bénéfice</field>
+        <field name="code">43202</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record> 
+	
+	<record id="pcg_60000" model="account.account.template">
+        <field name="name">Achats de marchandises "groupe A"</field>
+        <field name="code">60000</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_60001" model="account.account.template">
+        <field name="name">Achats de marchandises "groupe B"</field>
+        <field name="code">60001</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+	
+    <record id="pcg_60300" model="account.account.template">
+        <field name="name">Variation de stocks de marchandises (reçues)</field>
+        <field name="code">60300</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+
+    <record id="pcg_60301" model="account.account.template">
+        <field name="name">Variation de stocks de marchandises (livrés)</field>
+        <field name="code">60301</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+  
+    <record id="pcg_60302" model="account.account.template">
+        <field name="name">Variation de stocks de marchandises (gain ou perte)</field>
+        <field name="code">60302</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+  
+    <record id="pcg_60601" model="account.account.template">
+        <field name="name">Eau et Electricité</field>
+        <field name="code">60601</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+   	
+    <record id="pcg_63510" model="account.account.template">
+        <field name="name">Frais financiers</field>
+        <field name="code">63510</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+  
+    <record id="pcg_65000" model="account.account.template">
+        <field name="name">Salaires du personnel</field>
+        <field name="code">65000</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+  
+    <record id="pcg_67800" model="account.account.template">
+        <field name="name">Differences de change (perte)</field>
+        <field name="code">67800</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+  
+    <record id="pcg_63400" model="account.account.template">
+        <field name="name">Communication</field>
+        <field name="code">63400</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+  
+    <record id="pcg_62000" model="account.account.template">
+        <field name="name">Locations et charges locatives</field>
+        <field name="code">62000</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+  
+    <record id="pcg_60661" model="account.account.template">
+        <field name="name">Fourniture de bureaux</field>
+        <field name="code">60661</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+  
+    <record id="pcg_60612" model="account.account.template">
+        <field name="name">Carburant</field>
+        <field name="code">60612</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+  
+    <record id="pcg_63004" model="account.account.template">
+        <field name="name">Frais d'assurance</field>
+        <field name="code">63004</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+  
+    <record id="pcg_63002" model="account.account.template">
+        <field name="name">Frais transport/déplacement de personnes</field>
+        <field name="code">63002</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+  
+    <record id="pcg_63800" model="account.account.template">
+        <field name="name">Charges diverses</field>
+        <field name="code">63800</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+  
+    <record id="pcg_68000" model="account.account.template">
+        <field name="name">Dotations aux amortissements</field>
+        <field name="code">68000</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+	
+	<record id="pcg_70000" model="account.account.template">
+        <field name="name">Ventes de marchandises</field>
+        <field name="code">70001</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+  
+    <record id="pcg_77800" model="account.account.template">
+        <field name="name">Differences de change (gain)</field>
+        <field name="code">77800</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+  
+    <record id="pcg_70600" model="account.account.template">
+        <field name="name">Produits des activités annexes</field>
+        <field name="code">70600</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+  
+    <record id="pcg_70680" model="account.account.template">
+        <field name="name">Produits des activités antérieures</field>
+        <field name="code">70680</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+  
+    <record id="pcg_77600" model="account.account.template">
+        <field name="name">Escomptes obtenus</field>
+        <field name="code">77600</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+ 
+    <record id="pcg_78000" model="account.account.template">
+        <field name="name">Rep. sur amortissements</field>
+        <field name="code">78000</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+  
+    <record id="pcg_78500" model="account.account.template">
+        <field name="name">Rep. sur prov. pour dépréciations</field>
+        <field name="code">78500</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+	
+    <record id="pcg_87000" model="account.account.template">
+        <field name="name">Résultat net non distribués</field>
+        <field name="code">87000</field>
+        <field name="user_type_id" ref="account.data_unaffected_earnings"/>
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+	
+	
+<!-- 
+	
+    <record id="transfer_account_id" model="account.account.template">
+        <field name="code">58000</field>
+        <field name="name">Virements de fonds</field>
+        <field name="reconcile" eval='True'/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+    </record> 
+	
+	<record id="transfer_account_id" model="account.account.template">
+        <field name="chart_template_id" ref="l10n_acpec_temp_chart"/>
+    </record>
+	
+	
+	-->
+	
+
+</odoo>
